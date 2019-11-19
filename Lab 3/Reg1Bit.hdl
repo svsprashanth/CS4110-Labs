@@ -1,0 +1,8 @@
+CHIP Reg1Bit {
+    IN in, load;
+    OUT out;
+
+    PARTS:
+    Mux(a=ffout, b=in, sel=load, out=muxout);
+    myDFF(in=muxout, out=ffout, out=out);
+}

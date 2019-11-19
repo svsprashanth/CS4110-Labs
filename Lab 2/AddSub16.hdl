@@ -1,0 +1,11 @@
+CHIP AddSub16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    Not16(in=b, out=nb);
+    Inc16(in=nb, out=cb);
+    Add16(a=a, b=b, out=add);
+    Add16(a=a, b=cb, out=sub);
+    Mux16(a=add, b=sub, sel=sel, out=out);
+}
